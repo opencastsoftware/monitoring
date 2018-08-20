@@ -10,7 +10,7 @@ If you are using OS X or Windows, ensure that you have allocated enough memory t
 
 ### Centralised logging
 
-To monitor and analyse application logs, the [ELK](https://www.elastic.co/products/stack) (Elasticsearch, Logstash, Kibana) stack is included.
+To collect and analyse application logs, the [ELK](https://www.elastic.co/products/stack) (Elasticsearch, Logstash, Kibana) stack is included.
 
 #### Collecting log entries
 
