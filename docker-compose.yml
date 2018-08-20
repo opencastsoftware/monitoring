@@ -3,7 +3,7 @@ version: '3'
 services:
 
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:v2.3.2
     networks:
       - monitoring
     volumes:
@@ -12,7 +12,7 @@ services:
       - "9090:9090"
 
   pushgateway:
-    image: prom/pushgateway
+    image: prom/pushgateway:v0.5.2
     networks:
       - monitoring
     restart: always
@@ -20,7 +20,7 @@ services:
       - "9091:9091"
     
   zipkin:
-    image: openzipkin/zipkin
+    image: openzipkin/zipkin:2.11.2
     networks:
       - monitoring
     ports:
@@ -40,7 +40,7 @@ services:
       - "9108:9108"
 
   elk:
-    image: sebp/elk
+    image: sebp/elk:632
     networks:
       - monitoring
     ports:
@@ -55,7 +55,7 @@ services:
       ES_CONNECT_RETRY: 90
 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:5.2.2
     networks:
       - monitoring
     ports:
