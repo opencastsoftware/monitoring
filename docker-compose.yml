@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+
+  prometheus:
+    image: prom/prometheus
+    networks:
+      - monitoring
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  pushgateway:
+    image: prom/pushgateway
+    networks:
+      - monitoring
+    restart: always
+    ports:
+      - "9091:9091"
+    
+  zipkin:
+    image: openzipkin/zipkin
+    networks:
+      - monitoring
+    ports:
+      - "9411:9411"
+    environment:
+      STORAGE_TYPE: elasticsearch
+      ES_HOSTS: elk
+
+  es_exporter:
+    image: justwatch/elasticsearch_exporter:1.0.2
+    networks:
+      - monitoring
+    command:
+     - '-es.uri=http://elk:9200'
+    restart: always
+    ports:
+      - "9108:9108"
+
+  elk:
+    image: sebp/elk
+    networks:
+      - monitoring
+    ports:
+      - "5044:5044"
+      - "5601:5601"
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elk-storage:/var/lib/elasticsearch
+    environment:
+      ES_HEAP_SIZE: 3g
+      ES_CONNECT_RETRY: 90
+
+  grafana:
+    image: grafana/grafana
+    networks:
+      - monitoring
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - ./grafana/dashboards/:/var/lib/grafana/dashboards/
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+
+networks:
+  monitoring:
+
+volumes:
+  elk-storage:
+  grafana-storage:
