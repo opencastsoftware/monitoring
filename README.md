@@ -37,7 +37,11 @@ The [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) is confi
 
 ### Dashboards and Visualisation
 
-To visualise these metrics, [Grafana](http://grafana.com) is included. It uses the Prometheus metrics as its datasource.
+To visualise metrics, [Grafana](http://grafana.com) is included.
+
+It uses Prometheus as its datasource. Dashboards for Elasticsearch, Prometheus and Zipkin metrics are included out of the box.
+
+Host metrics can also be collected by using the Prometheus [node_exporter](https://github.com/prometheus/node_exporter), but it is recommended to install and run this on the host directly.
 
 #### Adding new dashboards
 
