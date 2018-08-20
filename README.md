@@ -35,7 +35,7 @@ To add a new Prometheus metrics target, edit the `./prometheus/prometheus.yml` f
 
 The [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) is configured to accept metrics on port 9091. This can be used to push metrics from batch processes. Examples of using various different clients are available in the Prometheus [documentation](https://prometheus.io/docs/instrumenting/pushing/).
 
-#### Visualisation
+### Dashboards and Visualisation
 
 To visualise these metrics, [Grafana](http://grafana.com) is included. It uses the Prometheus metrics as its datasource.
 
