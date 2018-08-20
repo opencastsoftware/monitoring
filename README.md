@@ -33,7 +33,7 @@ To monitor application metrics and dispatch alerts, the [Prometheus](https://pro
 
 To add a new Prometheus metrics target, edit the `./prometheus/prometheus.yml` file and add a new job. Prometheus also supports dynamically discovered targets based on a number of different discovery mechanisms. See the Prometheus [documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#<scrape_config>) for more details.
 
-The [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) is configured to accept metrics on port 9091. This can be used to push metrics from batch services. Examples of using various different clients are available in the Prometheus [documentation](https://prometheus.io/docs/instrumenting/pushing/).
+The [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) is configured to accept metrics on port 9091. This can be used to push metrics from batch processes. Examples of using various different clients are available in the Prometheus [documentation](https://prometheus.io/docs/instrumenting/pushing/).
 
 #### Visualisation
 
