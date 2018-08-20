@@ -59,8 +59,6 @@ scrape_configs:
 
     scrape_timeout:  5s
 
-    metrics_path: "/metrics"
-
     static_configs:
       - targets: ['es_exporter:9108']
 

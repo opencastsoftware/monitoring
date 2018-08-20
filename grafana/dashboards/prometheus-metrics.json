@@ -1249,7 +1249,7 @@
       }
     }
   ],
-  "refresh": "1m",
+  "refresh": "30s",
   "revision": "1.0",
   "schemaVersion": 16,
   "style": "dark",
